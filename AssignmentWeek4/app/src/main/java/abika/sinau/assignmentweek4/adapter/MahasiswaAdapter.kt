@@ -5,6 +5,7 @@ import abika.sinau.assignmentweek4.model.DataItem
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.list_item.view.*
 
@@ -27,16 +28,19 @@ class MahasiswaAdapter(val data: List<DataItem>?) :
     }
 
     override fun onBindViewHolder(holder: MahasiswaViewHolder, position: Int) {
+        val context = holder.itemView.context
         val item = data?.get(position)
 
         holder.nama.text = item?.mahasiswaNama
         holder.nohp.text = item?.mahasiswaNohp
-        holder.alamat.text = item?.mahasiswaAlamat
+
+        holder.itemView.setOnClickListener {
+            Toast.makeText(context, "Anda menekan ${data?.get(position)?.mahasiswaNama}", Toast.LENGTH_SHORT).show()
+        }
     }
 
     class MahasiswaViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nama = view.tvItemNama
         val nohp = view.tvItemNo
-        val alamat = view.tvItemAlamat
     }
 }
