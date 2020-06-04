@@ -1,4 +1,4 @@
-package abika.sinau.assignmentweek4
+package abika.sinau.mahasiswaappabika
 
 import org.junit.Test
 

@@ -7,7 +7,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "abika.sinau.assignmentweek4"
+        applicationId "abika.sinau.mahasiswaappabika"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1

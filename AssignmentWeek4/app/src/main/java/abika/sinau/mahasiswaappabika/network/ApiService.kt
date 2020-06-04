@@ -1,7 +1,7 @@
-package abika.sinau.assignmentweek4.network
+package abika.sinau.mahasiswaappabika.network
 
-import abika.sinau.assignmentweek4.model.ResponseAction
-import abika.sinau.assignmentweek4.model.ResponseGetData
+import abika.sinau.mahasiswaappabika.model.ResponseAction
+import abika.sinau.mahasiswaappabika.model.ResponseGetData
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -40,6 +40,7 @@ interface ApiService {
         @Field("mahasiswa_alamat") alamat: String): Call<ResponseAction>
 
     // delete Data
+    @FormUrlEncoded
     @POST("deleteData.php")
     fun deleteData(
         @Field("id_mahasiswa") id: String): Call<ResponseAction>

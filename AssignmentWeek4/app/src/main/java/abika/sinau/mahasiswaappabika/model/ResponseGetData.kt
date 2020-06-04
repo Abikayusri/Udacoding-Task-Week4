@@ -1,4 +1,4 @@
-package abika.sinau.assignmentweek4.model
+package abika.sinau.mahasiswaappabika.model
 
 import com.google.gson.annotations.SerializedName
 

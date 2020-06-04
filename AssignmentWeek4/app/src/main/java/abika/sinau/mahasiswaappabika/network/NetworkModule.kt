@@ -1,4 +1,4 @@
-package abika.sinau.assignmentweek4.network
+package abika.sinau.mahasiswaappabika.network
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

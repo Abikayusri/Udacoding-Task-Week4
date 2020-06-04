@@ -1,4 +1,4 @@
-package abika.sinau.assignmentweek4.model
+package abika.sinau.mahasiswaappabika.model
 
 data class ResponseAction(
 	val message: String? = null,

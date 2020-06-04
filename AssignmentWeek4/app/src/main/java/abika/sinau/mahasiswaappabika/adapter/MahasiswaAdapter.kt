@@ -1,10 +1,13 @@
-package abika.sinau.assignmentweek4.adapter
+package abika.sinau.mahasiswaappabika.adapter
 
-import abika.sinau.assignmentweek4.R
-import abika.sinau.assignmentweek4.model.DataItem
+import abika.sinau.mahasiswaappabika.InputActivity
+import abika.sinau.mahasiswaappabika.R
+import abika.sinau.mahasiswaappabika.model.DataItem
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.list_item.view.*
@@ -14,8 +17,9 @@ import kotlinx.android.synthetic.main.list_item.view.*
  * on Thursday, 04 June 2020
  * Bismillahirrahmanirrahim
  */
-class MahasiswaAdapter(val data: List<DataItem>?) :
+class MahasiswaAdapter(val data: List<DataItem>?, val itemClick: OnClickListener) :
     RecyclerView.Adapter<MahasiswaAdapter.MahasiswaViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MahasiswaViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
@@ -35,12 +39,26 @@ class MahasiswaAdapter(val data: List<DataItem>?) :
         holder.nohp.text = item?.mahasiswaNohp
 
         holder.itemView.setOnClickListener {
+//            val intent = Intent(context, InputActivity::class.java)
+//            intent.putExtra("Data", item)
+//            context.startActivity(intent)
+            itemClick.detail(item)
             Toast.makeText(context, "Anda menekan ${data?.get(position)?.mahasiswaNama}", Toast.LENGTH_SHORT).show()
+        }
+
+        holder.hapus.setOnClickListener {
+            itemClick.hapus(item)
         }
     }
 
     class MahasiswaViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nama = view.tvItemNama
         val nohp = view.tvItemNo
+        val hapus = view.btnHapus
+    }
+
+    interface OnClickListener {
+        fun detail(item: DataItem?)
+        fun hapus(item: DataItem?)
     }
 }
