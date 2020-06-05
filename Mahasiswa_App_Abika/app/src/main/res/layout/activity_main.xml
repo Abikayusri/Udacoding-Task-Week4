@@ -60,6 +60,7 @@
         android:src="@drawable/ic_add_white"
         android:translationZ="4dp"
         app:elevation="4dp"
+        app:borderWidth="0dp"
         app:fabCustomSize="60dp"
         app:maxImageSize="30dp" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

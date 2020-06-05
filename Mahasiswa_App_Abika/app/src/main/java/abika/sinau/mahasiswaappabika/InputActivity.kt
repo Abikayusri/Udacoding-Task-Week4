@@ -13,9 +13,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class InputActivity : AppCompatActivity() {
-
-//    private val getData = intent.getParcelableExtra<DataItem>("Data")
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_input)
@@ -28,38 +25,59 @@ class InputActivity : AppCompatActivity() {
 
             btnSave.text = "Update"
             btnSave.setBackgroundResource(R.drawable.bg_button_update)
-
-            Log.d(
-                "Data Update", "Data yang ingin diupdate: ${
-                getData.idMahasiswa +
-                        etNama.text.toString() +
-                        etNoHp.text.toString() +
-                        etAlamat.text.toString()
-                }"
-            )
         }
 
-        when (btnSave.text) {
-            "Update" -> {
-                btnSave.setOnClickListener {
-                    updateData(
-                        getData?.idMahasiswa,
-                        etNama.text.toString(),
-                        etNoHp.text.toString(),
-                        etAlamat.text.toString()
-                    )
+        btnSave.setOnClickListener {
+            when (btnSave.text) {
+                "Update" -> {
+                    when {
+                        (etNama.text.isEmpty() && etNoHp.text.isEmpty() && etAlamat.text.isEmpty()) -> {
+                            etNama.error = "Nama tidak boleh kosong"
+                            etNoHp.error = "NoHp tidak boleh kosong"
+                            etAlamat.error = "Alamat tidak boleh kosong"
+                        }
+                        (etNama.text.isEmpty()) -> {
+                            etNama.error = "Nama tidak boleh kosong"
+                        }
+                        (etAlamat.text.isEmpty()) -> {
+                            etAlamat.error = "Alamat tidak boleh kosong"
+                        }
+                        (etNoHp.text.isEmpty()) -> {
+                            etNoHp.error = "NoHp tidak boleh kosong"
+                        }
+                        else -> {
+                            updateData(
+                                getData?.idMahasiswa,
+                                etNama.text.toString(),
+                                etNoHp.text.toString(),
+                                etAlamat.text.toString()
+                            )
+                        }
+                    }
                 }
-            }
-            else -> {
-                btnSave.setOnClickListener {
-                    if (etNama.text.isEmpty()){
-                        etNama.error = "Nama required"
-                    } else {
-                        inputData(
-                            etNama.text.toString(),
-                            etNoHp.text.toString(),
-                            etAlamat.text.toString()
-                        )
+                else -> {
+                    when {
+                        (etNama.text.isEmpty() && etNoHp.text.isEmpty() && etAlamat.text.isEmpty()) -> {
+                            etNama.error = "Nama tidak boleh kosong"
+                            etNoHp.error = "NoHp tidak boleh kosong"
+                            etAlamat.error = "NoHp tidak boleh kosong"
+                        }
+                        (etNama.text.isEmpty()) -> {
+                            etNama.error = "Nama tidak boleh kosong"
+                        }
+                        (etAlamat.text.isEmpty()) -> {
+                            etAlamat.error = "Alamat tidak boleh kosong"
+                        }
+                        (etNoHp.text.isEmpty()) -> {
+                            etNoHp.error = "NoHp tidak boleh kosong"
+                        }
+                        else -> {
+                            inputData(
+                                etNama.text.toString(),
+                                etNoHp.text.toString(),
+                                etAlamat.text.toString()
+                            )
+                        }
                     }
                 }
             }
@@ -125,7 +143,6 @@ class InputActivity : AppCompatActivity() {
                     Log.d(
                         "Update Data", "Data diupdate: ${
                         getData?.idMahasiswa + etNama.text.toString() + etNoHp.text.toString() + etAlamat.text.toString()
-//                        etNama.text.toString() + etNoHp.text.toString() + etAlamat.text.toString()
                         }"
                     )
                     finish()
