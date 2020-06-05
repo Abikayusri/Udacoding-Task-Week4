@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Jun 2020 pada 18.43
+-- Waktu pembuatan: 05 Jun 2020 pada 07.14
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.1
 
@@ -40,10 +40,11 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id_mahasiswa`, `mahasiswa_nama`, `mahasiswa_nohp`, `mahasiswa_alamat`) VALUES
-(1, 'Abika', '1234567890', 'Bekasi'),
+(1, 'Abika029', '1234567890', 'Bektim'),
 (3, 'Ubiki', '123456789', 'Bekasi Barat'),
 (4, 'Obiki', '2147483647', 'Bekasi Utara'),
-(5, 'Obiki', '085718079788', 'Bekasi Utara');
+(5, 'Obiki', '085718079788', 'Bekasi Utara'),
+(6, 'Ibiki', '081234567890', 'Bekasi Utara');
 
 --
 -- Indexes for dumped tables
@@ -63,7 +64,7 @@ ALTER TABLE `mahasiswa`
 -- AUTO_INCREMENT untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

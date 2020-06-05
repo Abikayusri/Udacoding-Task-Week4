@@ -12,7 +12,7 @@ object NetworkModule {
 
     fun getRetrofit(): Retrofit {
 
-        return Retrofit.Builder().baseUrl("http://192.168.100.227/assignment-week4/")
+        return Retrofit.Builder().baseUrl("http://192.168.100.227/mentoring_kotlin_week4/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

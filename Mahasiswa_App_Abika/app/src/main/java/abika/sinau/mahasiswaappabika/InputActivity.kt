@@ -52,11 +52,15 @@ class InputActivity : AppCompatActivity() {
             }
             else -> {
                 btnSave.setOnClickListener {
-                    inputData(
-                        etNama.text.toString(),
-                        etNoHp.text.toString(),
-                        etAlamat.text.toString()
-                    )
+                    if (etNama.text.isEmpty()){
+                        etNama.error = "Nama required"
+                    } else {
+                        inputData(
+                            etNama.text.toString(),
+                            etNoHp.text.toString(),
+                            etAlamat.text.toString()
+                        )
+                    }
                 }
             }
         }

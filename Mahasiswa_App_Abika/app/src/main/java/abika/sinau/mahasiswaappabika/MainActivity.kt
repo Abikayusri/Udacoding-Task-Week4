@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, InputActivity::class.java))
         }
 
+        tvTesting.text = ""
         showData()
     }
 
